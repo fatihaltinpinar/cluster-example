@@ -17,3 +17,18 @@ spec:
         name: static-page-faati
         ports:
         - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: faatisite
+  labels:
+    app: faatisite
+spec:
+  selector:
+    app: faatisite
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+  type: LoadBalancer
