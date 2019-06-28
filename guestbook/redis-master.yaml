@@ -6,10 +6,9 @@ metadata:
     app: guestbook
 spec:
   selector:
-    matchLabels:
-      app: guestbook
-      role: redis
-      tier: master
+    app: guestbook
+    role: redis
+    tier: master
   replicas: 1
   template:
     metadata:
