@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-export HOSTMAIN=$(oc whoami -c | grep -oP "(?<=\/).*?(?=:)")
-sed -i 's/(hostname)/'"$HOSTMAIN"'/g' routes.yaml
+export SESID=$(oc whoami -c | grep -oP "(?<=\/)([0-9].*?)(?=-)")
+sed -i 's/(SESID)/'"$SESID"'/g' routes.yaml
