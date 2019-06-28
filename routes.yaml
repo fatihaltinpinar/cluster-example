@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  labels:
+    app: faatisite
+  name: faatisite
+spec:
+  host: faatisite.(hostname)
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: faatisite
+---
+apiVersion: v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  labels:
+    app: hello-world
+  name: hello-world
+spec:
+  host: hello-world.(hostname)
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: hello-world-svc 

@@ -2,14 +2,18 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   name: hello-world
+  labels:
+    app: hello-world
 spec:
   replicas: 5
   selector:
     name: hello-world-cont
+    app: hello-world
   template:
     metadata:
       labels:
         name: hello-world-cont
+        app: hello-world
     spec:
       containers:
       - image: gcr.io/google-samples/node-hello:1.0
@@ -21,6 +25,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: hello-world-svc
+  lables:
+    app: hello-world
 spec:
   type: LoadBalancer
   ports:
@@ -28,3 +34,4 @@ spec:
     targetPort: 8080
   selector:
     name: hello-world-cont
+    app: hello-world
