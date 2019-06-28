@@ -27,7 +27,7 @@ spec:
         - name: GET_HOSTS_FROM
           value: dns
         ports:
-        - containerPort: 81
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -40,6 +40,7 @@ spec:
   type: LoadBalancer
   ports:
   - port: 81
+    targerPort: 80
   selector:
     app: guestbook
     tier: frontend
