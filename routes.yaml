@@ -7,7 +7,7 @@ metadata:
     app: faatisite
   name: faatisite
 spec:
-  host: faatisite.(SESID)-80-simba02.environments.katacoda.com
+  host: faatisite.(SESID)-80-frugo02.environments.katacoda.com
   port:
     targetPort: 8080
   to:
@@ -23,7 +23,7 @@ metadata:
     app: hello-world
   name: hello-world
 spec:
-  host: hello-world.(SESID)-80-simba02.environments.katacoda.com
+  host: hello-world.(SESID)-80-frugo02.environments.katacoda.com
   port:
     targetPort: 8080
   to:
