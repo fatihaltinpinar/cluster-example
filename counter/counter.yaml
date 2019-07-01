@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: deploymentConfig
+metadata:
+  name: counter
+spec:
+  template:
+    metadata:
+      labels:
+        name: counter
+    spec:
+      containers:
+      - name: counter
+        image: docker.io/faati/counter:latest
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+  replicas: 5
+  triggers:
+  - type: ConfigChange
+  - type: ImageChange
+    imageChangeParams:
+      automatic: true
+      containerNames:
+      - counter
+      from:
+        kind: ImageStreamTag
+        name: docker.io/faati/counter:latest
+  strategy:
+    type: Rolling
+  paused: false
+  revisionHistoryLimit: 2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: counter
+spec:
+  ports:
+  - targetPort: 8080
+    port: 80
+  selector:
+    name: counter
+  type: LoadBalancer
