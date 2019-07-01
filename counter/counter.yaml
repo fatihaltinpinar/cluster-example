@@ -17,14 +17,14 @@ spec:
   replicas: 5
   triggers:
   - type: ConfigChange
-  - type: ImageChange
-    imageChangeParams:
-      automatic: true
-      containerNames:
-      - counter
-      from:
-        kind: ImageStreamTag
-        name: counter:latest
+#  - type: ImageChange
+#    imageChangeParams:
+#      automatic: true
+#      containerNames:
+#      - counter
+#      from:
+#        kind: ImageStreamTag
+#        name: counter:latest
   strategy:
     type: Rolling
   paused: false
