@@ -5,7 +5,7 @@ metadata:
   labels:
     app: hello-world
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     name: hello-world-cont
     app: hello-world
