@@ -17,14 +17,14 @@ spec:
   replicas: 5
   triggers:
   - type: ConfigChange
-#  - type: ImageChange
-#    imageChangeParams:
-#      automatic: true
-#      containerNames:
-#      - counter
-#      from:
-#        kind: ImageStreamTag
-#        name: counter:latest
+  - type: imageChange
+    imageChangeParams:
+      automatic: true
+      containerNames:
+      - counter
+      from:
+        kind: DockerImage
+        name: docker.io/faati/counter:latest
   strategy:
     type: Rolling
   paused: false
