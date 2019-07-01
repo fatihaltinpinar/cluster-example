@@ -10,8 +10,8 @@ def index():
     global count
     count += 1
     page = f'''<html><head><title>counter</title></head><body>
-    <h1 style="text-align:center; font-size:100px"  >{count}<h1>
-    <h6 style="text-align:center; font-size:20px" >Hosting pod = {hostname}<h6>
+    <h1 style="text-align:center; font-size:100px; color:blue" >{count}</h1>
+    <h6 style="text-align:center; font-size:20px" >Hosting pod = {hostname}</h6>
     
     </body></html>'''
     return page
