@@ -74,7 +74,6 @@ def server_static(filename):
 def server_static():
     return static_file('favicon.ico', root='./static/')
 
-172.20.0.2
 @error(404)
 def error404(error):
     return "OOPS" + str(error)
@@ -91,4 +90,4 @@ debug(True)
 app = default_app()
 # The below code is necessary for running this bottle app standalone on your computer.
 if __name__ == "__main__":
-    run(port=8080)
+    run(host="0.0.0.0", port=8080)
